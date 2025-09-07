@@ -1,3 +1,5 @@
+0- Open git bash command window
+
 1- Create public and private key pair.
     ssh-keygen -t ed25519 -C "bmorta01@student.ubc.ca"
         > Enter file in which to save the key (/c/Users/LBRY-SVC-Patron/.ssh/id_ed25519):[Press enter]
