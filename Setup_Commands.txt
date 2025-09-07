@@ -1,0 +1,29 @@
+1- install 
+    Download/python-3.10.11-amd64   to ~AppData/Local/Programs/Python/Python31011  
+    Download/python-3.11.9-amd64    to ~AppData/Local/Programs/Python/Python3119
+    Download/python-3.12.10-amd64   to ~AppData/Local/Programs/Python/Python31210
+
+    Download/Git-2.51.0-64-bit
+    Download/VSCodeUserSetup-x64-1.103.2
+
+2- cd to C:\\Users\\LBRY-SVC-Patron\\Documents
+    run command
+        py -3.12 -m venv bookEnv
+        
+3- Run VSCode and install Extensions
+        Python
+        Python Extension Pack
+        Python Type Hint
+        Jupyter
+    Restart VSCode
+
+    From menu select File->Preferences->Settings then click "far upper right corner button" named = Open Settings (JASON)
+    copy from Documents/Python/settings.json the line
+            "python.defaultInterpreterPath": "C:\\Users\\LBRY-SVC-Patron\\Documents\\bookEnv\\Scripts\\python.exe"
+        into settings.json file
+
+    Ctrl+Shift+P "Python: Select Interpreter" and select
+        Use Python from `python.defaultInterpreterPath` setting
+
+    Open workspace from file -> Documents/Python/Python_workspace
+

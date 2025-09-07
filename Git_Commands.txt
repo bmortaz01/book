@@ -1,0 +1,59 @@
+https://education.github.com/git-cheat-sheet-education.pdf
+===================================================================
+
+git config --global user.name "Behzad Mortazavi"
+git config --gloval user.email "behzad.work@gmail.com"
+git config --global init.defaultBranch main
+
+----------------------------------------
+git remote show [alias]
+        shows some information about remote repository
+git remote add [alias==origin] [url==https://github.com/yourusername/your-repo.git]
+        add a git URL as an alias
+git fetch [alias]
+    fetch down all the branches from that Git remote
+git merge [alias]/[main]
+    merge a remote branch 'main' into your current branch to bring it up to date
+git push [alias] [main]
+    Transmit local branch 'main' commits to the remote repository branch
+git push -u origin main
+    Transmit local branch 'main' commits to the remote alias 'origin' repository branch.
+    The -u flag sets the upstream for the branch, making future pushes easier.
+git pull
+    fetch and merge any commits from the tracking remote branch
+----------------------------------------
+
+git init
+        initialize an existing directory as a empty Git repository in directory ~/.git
+        By default, Git creates a branch called master when you initialize a new repository.
+git init --bare work.git
+        initialize an existing directory as a empty Git repository in directory ~/test.git
+        By default, Git creates a branch called master when you initialize a new repository.
+
+git checkout -b main
+        to create and switch to a new local branch 'main'.
+git checkout -b main origin/main
+        to create and switch to a new local branch 'main' 
+        and remote repository 'origin' with remote branch 'main'.
+
+git status
+        show modified files in working directory, staged for your next commit
+
+git clone [url]
+        retrieve an entire repository from a hosted location via URL
+
+git diff
+        diff of what is changed but not staged
+
+git diff --staged
+        diff of what is staged but not yet committed
+
+git add .
+        add all changed files as it looks now to your next commit (STAGE)
+
+git reset [file]
+        unstage a file while retaining the changes in working directory
+
+git commit -m "comments to add."
+        commit your staged content as a new commit snapshot
+

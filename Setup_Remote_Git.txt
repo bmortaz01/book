@@ -1,0 +1,10 @@
+cd c:/Users/LBRY-SVC-Patron/Documents/Python
+git config --global user.name "Behzad Mortazavi-Asl"
+git config --gloval user.email "bmorta01@student.ubc.ca"
+git config --global init.defaultBranch main
+git config --global --list
+git remote add origin https://github.com/bmortaz01/book.git
+git remote -v
+
+git init
+git checkout -b main
