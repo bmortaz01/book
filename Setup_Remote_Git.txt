@@ -1,5 +1,5 @@
 cd c:/Users/LBRY-SVC-Patron/Documents/Python
-git config --global user.name "Behzad Mortazavi-Asl"
+git config --global user.name "Behzad Mortazavi"
 git config --gloval user.email "bmorta01@student.ubc.ca"
 git config --global init.defaultBranch main
 git config --global --list
