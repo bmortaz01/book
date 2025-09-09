@@ -8,7 +8,14 @@
 
 2- cd to C:\\Users\\LBRY-SVC-Patron\\Documents
     run command
-        py -3.12 -m venv bookEnv
+        export PATH="/c/Users/LBRY-SVC-Patron/AppData/Local/Programs/Python/Python31210/Scripts:$PATH"      # in bash
+        echo $PATH           # in bash
+        echo $env.PATH       # in powershell
+        py -3.12 -m venv bookEnv                # in bash
+        bookEnv/Scripts/activate                # in bash
+        python -m pip install --upgrade pip     # in bash           
+        py -m pip install ipykernel             # in bash
+        py -m pip list                          # in bash
         
 3- Run VSCode and install Extensions
         Python
