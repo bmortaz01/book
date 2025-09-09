@@ -1,7 +1,7 @@
 1- install 
     Download/python-3.10.11-amd64   to ~AppData/Local/Programs/Python/Python31011  
     Download/python-3.11.9-amd64    to ~AppData/Local/Programs/Python/Python3119
-    Download/python-3.12.10-amd64   to ~AppData/Local/Programs/Python/Python31210
+    Download/python-3.12.10-amd64   to ~AppData/Local/Programs/Python/Python31210           # add to PATH
 
     Download/Git-2.51.0-64-bit
     Download/VSCodeUserSetup-x64-1.103.2
