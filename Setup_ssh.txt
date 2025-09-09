@@ -4,7 +4,7 @@
     ssh-keygen -t ed25519 -C "UBC email address"
         > Enter file in which to save the key (/c/Users/LBRY-SVC-Patron/.ssh/id_ed25519):[Press enter]
         > Created directory '/c/Users/LBRY-SVC-Patron/.ssh'.
-        > Enter passphrase for "/c/Users/LBRY-SVC-Patron/.ssh/id_ed25519" (empty for no passphrase): [Type passphrase==Git.Pass.2]
+        > Enter passphrase for "/c/Users/LBRY-SVC-Patron/.ssh/id_ed25519" (empty for no passphrase): [Type passphrase==Github password]
         > Enter same passphrase again: [Type passphrase==Github password]
         > Your identification has been saved in /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519
         > The public key has been saved in /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519.pub
