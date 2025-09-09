@@ -4,6 +4,7 @@ https://education.github.com/git-cheat-sheet-education.pdf
 git config --global user.name "Behzad Mortazavi"
 git config --gloval user.email "ubc email address"
 git config --global init.defaultBranch main
+git config --global --list
 
 ----------------------------------------
 git remote show [alias]
