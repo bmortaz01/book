@@ -12,7 +12,7 @@
         echo $PATH           # in bash
         echo $env.PATH       # in powershell
         py -3.12 -m venv bookEnv                # in bash
-        bookEnv/Scripts/activate                # in bash
+        . ./bookEnv/Scripts/activate            # in bash
         python -m pip install --upgrade pip     # in bash           
         py -m pip install ipykernel             # in bash
         py -m pip list                          # in bash
