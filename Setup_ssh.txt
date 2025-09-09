@@ -1,11 +1,11 @@
 0- Open git bash command window
 
 1- Create public and private key pair.
-    ssh-keygen -t ed25519 -C "bmorta01@student.ubc.ca"
+    ssh-keygen -t ed25519 -C "UBC email address"
         > Enter file in which to save the key (/c/Users/LBRY-SVC-Patron/.ssh/id_ed25519):[Press enter]
         > Created directory '/c/Users/LBRY-SVC-Patron/.ssh'.
         > Enter passphrase for "/c/Users/LBRY-SVC-Patron/.ssh/id_ed25519" (empty for no passphrase): [Type passphrase==Git.Pass.2]
-        > Enter same passphrase again: [Type passphrase==Git.Pass.2]
+        > Enter same passphrase again: [Type passphrase==Github password]
         > Your identification has been saved in /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519
         > The public key has been saved in /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519.pub
 2- Copy the SSH public key to your clipboard.
@@ -26,8 +26,8 @@
     eval "$(ssh-agent -s)"
 11- Add your public ssh key for Github and Github passphrase 
     ssh-add /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519
-        > Enter passphrase for /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519: [Enter passphrase==Git.Pass.2]
-        > Identity added: /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519 (bmorta01@student.ubc.ca)
+        > Enter passphrase for /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519: [Enter passphrase==Github password]
+        > Identity added: /c/Users/LBRY-SVC-Patron/.ssh/id_ed25519 (Should match UBC email address entered above)
 12- Test Github ssh connection
     ssh -T git@github.com
         > The authenticity of host 'github.com (140.82.112.4)' can't be established.
