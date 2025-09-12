@@ -44,9 +44,10 @@ def futureVal():
 def quadRoot():
     print("This program finds the real and imaginary solutions to a quadratic equation.", end="\n\n")
     
-    a = float(input("Enter coefficient a: ")) 
-    b = float(input("Enter coefficient b: ")) 
-    c = float(input("Enter coefficient c: ")) 
+    a, b, c = eval(input("Enter coefficient a, b, c (separated by comma): ")) 
+    a = float(a)
+    b = float(b)
+    c = float(c)
     
     rootOf = b * b - 4 * a * c
     if rootOf > 0:
