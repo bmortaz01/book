@@ -71,5 +71,31 @@ def quadRoot():
         print("\nOnly one Real root:")
         print(f"root 1: {root1:.9f}")
 
+def cast_number(strNumber):
+    try:
+        casted_number = float(strNumber)
+    except ValueError:
+        print(f"Couldn't cast {repr(strNumber)} to a number.")
+        return ''
+    else:
+        print(f"Casting {repr(strNumber)} to {casted_number}")
+        return casted_number
+    
+def todaysTemp():
+    try:
+        x = eval(input('Enter today’s temperature in Celsius degrees? '))
+    except Exception:
+        print("Please enter a numeric value!")
+    else:
+        if isinstance(x, int) or isinstance(x, float):
+            if x < 10:
+                print(f"You entered {x:.1f} degrees. It's cold!")
+            elif x <= 25:
+                print(f"You entered {x:.1f} degrees. It's cool!")
+            elif x > 25:
+                print(f"You entered {x:.1f} degrees. It's hot!")
+        else:
+            print("Please enter a numeric value!")
+
 if __name__ == '__main__':
     sayHello()
