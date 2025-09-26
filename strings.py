@@ -1,5 +1,7 @@
+import sys
 import string
 import re
+
 
 def openFile(infilename, outfilename):
     # print(f'infile={infilename}, outfile={outfilename}')
@@ -24,7 +26,6 @@ def tasks():
             else:
                 print(f'{'no Match:':<12}{line}')
 
-
 def match(case=0):
     if case == 0:
         str = '#1$2m_ M\t'
@@ -48,3 +49,8 @@ def match(case=0):
             print(f'Match {text!r}: {re.match(pattern, text)}')
     elif case == 3:
         print(re.search(pattern, str))
+
+if __name__ == '__main__':
+    func_name = sys.argv[1]     # Capture function name
+    params = sys.argv[2:]       # Capture all subsequent arguments
+    globals()[func_name](*params)   # Execute function by string name

@@ -6,7 +6,9 @@
 #   find quadratic roots.
 # by: Behzad Mortazavi
 
+import sys
 import math
+
 
 def sayHello():
     print('Hello World again!')
@@ -98,4 +100,6 @@ def todaysTemp():
             print("Please enter a numeric value!")
 
 if __name__ == '__main__':
-    sayHello()
+    func_name = sys.argv[1]     # Capture function name
+    params = sys.argv[2:]       # Capture all subsequent arguments
+    globals()[func_name](*params)   # Execute function by string name
