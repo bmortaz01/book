@@ -1,6 +1,7 @@
 import sys
 import copy
 from collections.abc import Hashable
+from collections import deque
 from timeit import timeit
 
 
@@ -76,7 +77,15 @@ def setRelations():
     print(f'{str(client1): <19} {'Intersection(&)': <19} {str(stocks): <40} == {str(client1 & stocks)}')
     print(f'{str(client1): <19} {'Sym Diff(^)': <19} {str(stocks): <40} == {str(client1 ^ stocks)}')
     print(f'{str(client1): <19} {'Diff(-)': <19} {str(stocks): <40} == {str(client1 - stocks)}')    
-    
+
+def timeFifo(*nums):
+    for num in nums:
+        n = int(num)
+        x = list(range(n))
+        y = deque(range(n))
+        t_1 = timeit(lambda: x.pop(0), number=n)
+        t_2 = timeit(lambda: y.popleft(), number=n)
+        print(f"{n: >9} list: {t_1:.6e} | deque: {t_2:.6e}")
 
 if __name__ == '__main__':
     func_name = sys.argv[1]     # Capture function name
