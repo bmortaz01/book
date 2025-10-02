@@ -31,10 +31,19 @@ def test_lists():
     print('z                -> ', z)
 
 def isHashable():
-    print(f'{'': <18}   {'Data Type': <18}   {'Hashable'}')
-    items = [{'a':1}, [1,2,3], {1,2,3}, (1,2,3), 1, 1.2, "test", True, None]
+    print(f'{'Data': <21}   {'Data Type': <21}   {'Hashable'}')
+    items = [{'a':1}, 
+             [[0,1], [1,2], [2,3]],
+             [1,2,3], {1,2,3}, 
+             ('tom', [1, 2, 3]), 
+             ("filename", "extension"), 
+             (1,2,3), 
+             frozenset([1,2,3]), 
+             bytes(1), bytearray(b'A\x00\x00\x00\x00'), 
+             complex(3,5),
+             1, 1.2, "test", True, None]
     for item in items:
-        print(f'{str(item): <18}   {str(type(item)): <18} | {isinstance(item, Hashable)}')
+        print(f'{str(item): <21}   {str(type(item)): <21} | {isinstance(item, Hashable)}')
 
 def compListsSets():
     for count in [10, 100, 1000, 10000, 100000]:
