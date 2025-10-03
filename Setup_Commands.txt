@@ -26,7 +26,10 @@
 
     From menu select File->Preferences->Settings then click "far upper right corner button" named = Open Settings (JASON)
     copy from Documents/Python/settings.json the line
-            "python.defaultInterpreterPath": "C:\\Users\\LBRY-SVC-Patron\\Documents\\bookEnv\\Scripts\\python.exe"
+            "python.defaultInterpreterPath": "C:\\Users\\LBRY-SVC-Patron\\Documents\\bookEnv\\Scripts\\python.exe",
+            "editor.inlayHints.enabled":"on",
+            "python.inlayHints.parameterNames.enabled":"all"
+
         into settings.json file
 
     Ctrl+Shift+P "Python: Select Interpreter" and select
