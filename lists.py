@@ -1,6 +1,6 @@
 import sys
 import copy
-from collections.abc import Hashable
+from collections.abc import Hashable, Iterable
 from collections import deque
 from timeit import timeit
 
@@ -31,20 +31,63 @@ def test_lists():
     print('a == deepcopy(z) -> ', a)
     print('z                -> ', z)
 
-def isHashable():
-    print(f'{'Data': <21}   {'Data Type': <21}   {'Hashable'}')
-    items = [{'a':1}, 
-             [[0,1], [1,2], [2,3]],
-             [1,2,3], {1,2,3}, 
-             ('tom', [1, 2, 3]), 
-             ("filename", "extension"), 
-             (1,2,3), 
-             frozenset([1,2,3]), 
-             bytes(1), bytearray(b'A\x00\x00\x00\x00'), 
-             complex(3,5),
-             1, 1.2, "test", True, None]
-    for item in items:
-        print(f'{str(item): <21}   {str(type(item)): <21} | {isinstance(item, Hashable)}')
+def isHashable(isIt: str = 'Hashable', strSort: str = False):
+    doSort = bool(strSort)
+    header1 = {'IsIt': None}
+    match isIt:
+        case 'Hashable':
+            header1['IsIt'] = f'{'Is Hashable': <11}'
+        case 'Iterable':
+            header1['IsIt'] = f'{'Is Iterable': <11}'
+        case _:
+            print("Usage: isHashable {Hashable | Iterator}")
+            return
+
+    header1.update({'Row': f'{'#': ^4}', 'Data': f'{'Data': ^41}', 'Type': f'{'Data Type': ^21}', 
+                    'Desc':f'{'Description': ^31}'})
+    header2 = {'Row': f'{'-':-<4}', 'Data': f'{'-':-^41}', 'Type': f'{'-':-^21}', 'IsIt': f'{'-':-<11}', 'Desc':f'{'-':-^31}'}
+    print(f'{header1['Row']} | {header1['Data']}   | {header1['Type']} | {header1['IsIt']} | {header1['Desc']}')
+    print(f'{header2['Row']}   {header2['Data']}     {header2['Type']}   {header2['IsIt']}   {header2['Desc']}')
+    
+    items = [
+            {'Data': {'a':1},               'Desc': 'Dictionary, Mutable'},
+            {'Data': [[0,1], [1,2], [2,3]], 'Desc': 'List of lists, Mutable'},
+            {'Data': [1,2,3],               'Desc': 'List, Mutable'},
+            {'Data': {1,2,3},               'Desc': 'Set, Mutable'},
+            {'Data': ('tom', [1, 2, 3]),    'Desc': 'Tuple, Non-Mutable'},
+            {'Data': ("filename", "extension"), 'Desc': 'Tuple, Non-Mutable'},
+            {'Data': (1,2,3),               'Desc': 'Tuple, Non-Mutable'},
+            {'Data': frozenset([1,2,3]),    'Desc': 'Frozen-Set, Non-Mutable'},
+            {'Data': bytes(1),              'Desc': 'Bytes, Non-Mutable'},
+            {'Data': bytearray(b'A\x00\x00\x00\x00'), 'Desc': 'Byte Array, Mutable'},
+            {'Data': map(str, [1, 2, 3]),   'Desc': "Map, Iterator, Non-Mutable -- map(str, [1, 2, 3])"},
+            {'Data': zip([1,2], ('a','b')), 'Desc': "Zip, Iterator, Non-Mutable -- zip([1,2], ('a','b'))"},
+            {'Data': filter(bool, (-2, -1, 0, 1, 2)), 'Desc': "Filter, Iterator, Non-Mutable -- zip([1,2], ('a','b'))"},
+            {'Data': enumerate([1, 2, 3]),  'Desc': "Enumerate, Enumerator, Non-Mutable -- enumerate([1, 2, 3])"},
+            {'Data': reversed('Hello'),     'Desc': "Reversed, Iterator, Non-Mutable -- reversed('Hello')"},
+            {'Data': complex(3,5),          'Desc': 'Complex, Non-Mutable'},
+            {'Data': 1,                     'Desc': 'Integer, Non-Mutable'},
+            {'Data': 1.2,                   'Desc': 'Float, Non-Mutable'},
+            {'Data': "test",                'Desc': 'String, Non-Mutable'},
+            {'Data': True,                  'Desc': 'Boolean, Non-Mutable'},
+            {'Data': None,                  'Desc': 'NoneType, Non-Mutable'}
+        ]
+
+    sortedList = items
+    match (isIt, doSort):
+        case ('Hashable', True):
+            sortedList = sorted(items, key=lambda x: isinstance(x['Data'], Hashable))
+        case ('Iterable', True):
+            sortedList = sorted(items, key=lambda x: isinstance(x['Data'], Iterable))
+
+    for i, item in enumerate(sortedList):
+        data = item['Data']
+        desc = item['Desc']
+        match isIt:
+            case 'Hashable':
+                print(f'{i: ^4} | {str(data): <41}   | {str(type(data)): <21} | {str(isinstance(data, Hashable)): ^11} | {desc}')
+            case 'Iterable':
+                print(f'{i: ^4} | {str(data): <41}   | {str(type(data)): <21} | {str(isinstance(data, Iterable)): ^11} | {desc}')
 
 def compListsSets():
     for count in [10, 100, 1000, 10000, 100000]:
